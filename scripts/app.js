@@ -3,6 +3,9 @@ const app = angular.module("myPage", ['ngRoute', 'ngResource']);
 app.controller("mainCtrl", ($scope, $location, $anchorScroll, translation) => {
   $scope.appName = "Geocarlos";
   $scope.lang = navigator.language.substring(0, 2);
+  if($scope.lang !== "en" || $scope.lang !== "pt"){
+    $scope.lang = "en";
+  }
   $scope.strings = translation.getStrings();
   $scope.goTo = (id) => {
     $location.hash(id);
